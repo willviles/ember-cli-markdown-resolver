@@ -1,23 +1,38 @@
 {
   "name": "ember-cli-markdown-resolver",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember CLI addon for resolving markdown files and retrieving them using the Ember store service",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "markdown",
+    "md",
+    "resolver",
+    "frontmatter",
+    "content"
   ],
   "license": "MIT",
-  "author": "",
+  "author": {
+    "name": "Will Viles",
+    "email": "will@vil.es",
+    "url": "willviles.com"
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willviles/ember-cli-markdown-resolver.git"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each"
   },
   "dependencies": {
+    "broccoli-funnel": "^2.0.1",
+    "broccoli-markdown-resolver": "^0.0.1",
+    "broccoli-merge-trees": "^2.0.0",
     "ember-cli-babel": "^6.3.0"
   },
   "devDependencies": {
