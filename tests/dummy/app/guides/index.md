@@ -1,5 +1,5 @@
 ---
-title: Install
+title: Welcome to the guides
 inTree: false
 ---
 

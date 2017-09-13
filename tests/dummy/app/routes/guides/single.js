@@ -15,6 +15,12 @@ export default Route.extend({
     });
   },
 
+  afterModel({ guide }) {
+    if (!guide) {
+      this.transitionTo('error', { type: '404' });
+    }
+  },
+
   setupController(controller, model) {
     controller.setProperties(model);
   }

@@ -3,24 +3,26 @@ title: markdown-menu
 order: 0
 ---
 
-SMMRY offers an official Node.js SDK for interacting with the SMMRY API.
-
-Firstly, install the NPM module:
+Here's some test code examples
 
 ```shell
-npm install smmry
+ember install ember-cli-markdown-resolver
 ```
-
-The SMMRY module exposes a summarize function. Here’s an example using ES6 async/await.
 
 ```js
-import smmry from 'smmry';
+// routes/guides/single.js
+import Route from '@ember/routing/route';
+import { inject } from '@ember/service';
 
-async function summarize(text) {
-  const summary = await smmry.summarize(text);
-  console.log(summary); // => Your summary
-}
+export default Route.extend({
+  markdownResolver: inject(),
+
+  model({ path }) {
+    return get(this, 'markdownResolver').file('guides', path);
+  }
+});
 ```
+
 
 YAML syntax highlighting test
 

@@ -24,10 +24,21 @@ module.exports = function(environment) {
     }
   };
 
+  // @addon Ember CLI Markdown Resolver
+  // @url https://github.com/willviles/ember-cli-markdown-resolver
+
   ENV['ember-cli-markdown-resolver'] = {
     folders: {
       guides: 'app/guides'
     }
+  };
+
+  // @addon Ember Code Prettify
+  // @url https://github.com/willviles/ember-code-prettify
+
+  ENV['ember-code-prettify'] = {
+    languages: ['css', 'yaml'],
+    skin: 'desert'
   };
 
   if (environment === 'development') {

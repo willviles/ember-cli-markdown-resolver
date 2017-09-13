@@ -3,21 +3,4 @@ title: Trees
 order: 1
 ---
 
-SMMRY offers an official Node.js SDK for interacting with the SMMRY API.
-
-Firstly, install the NPM module:
-
-```shell
-npm install smmry
-```
-
-The SMMRY module exposes a summarize function. Here’s an example using ES6 async/await.
-
-```js
-import smmry from 'smmry';
-
-async function summarize(text) {
-  const summary = await smmry.summarize(text);
-  console.log(summary); // => Your summary
-}
-```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mene ergo et Triarium dignos existimas, apud quos turpiter loquare? Qua tu etiam inprudens utebare non numquam. Sed ego in hoc resisto; Nam his libris eum malo quam reliquo ornatu villae delectari. Urgent tamen et nihil remittunt. Duo Reges: constructio interrete. Sapiens autem semper beatus est et est aliquando in dolore;
