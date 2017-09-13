@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-markdown-resolver",
   "version": "0.0.1",
-  "description": "Ember CLI addon for resolving markdown files and querying them through the Ember store service",
+  "description": "Ember CLI addon for resolving markdown files in custom folders and retrieving content via a service.",
   "keywords": [
     "ember-addon",
     "markdown",
