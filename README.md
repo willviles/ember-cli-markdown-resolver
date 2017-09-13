@@ -37,7 +37,7 @@ And to populate your folder with markdown content:
 
 ## Usage
 
-Ember CLI Markdown Resolver enables markdown content to be retrieved via the default `store` service.
+Ember CLI Markdown Resolver enables markdown content to be retrieved via the `markdownResolver` service.
 
 ### `this.get('markdownResolver').file(type, path)`
 
@@ -83,7 +83,7 @@ export default Route.extend({
   markdownResolver: inject(),
 
   model({ path }) {
-    return get(this, 'markdownResolver').file('guides');
+    return get(this, 'markdownResolver').tree('guides');
   }
 });
 ```
