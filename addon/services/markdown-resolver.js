@@ -8,7 +8,8 @@ import {
 import {
   computed,
   get,
-  getWithDefault
+  getWithDefault,
+  set
 } from '@ember/object';
 import {
   files,
@@ -72,7 +73,7 @@ export default Service.extend({
       }
       let children = get(file, 'children');
       if (children) {
-        this.orderFiles(children);
+        set(file, 'children', this.orderFiles(children));
       }
     });
     return files;
