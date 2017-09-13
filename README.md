@@ -39,18 +39,21 @@ And to populate your folder with markdown content:
 
 Ember CLI Markdown Resolver enables markdown content to be retrieved via the default `store` service.
 
-### `this.store.findMarkdown(type, path)`
+### `this.get('markdownResolver').file(type, path)`
 
-The `findMarkdown` method returns promisified markdown content, allowing the content to be chainable via `.then()`.
+The `file` method returns promisified markdown content, allowing the content to be chainable via `.then()`.
 
 ```js
 // routes/guides/single.js
 
 import Route from '@ember/routing/route';
+import { inject } from '@ember/service';
 
 export default Route.extend({
+  markdownResolver: inject(),
+
   model({ path }) {
-    return this.store.findMarkdown('guides', path);
+    return get(this, 'markdownResolver').file('guides', path);
   }
 });
 ```
@@ -66,36 +69,21 @@ Each markdown file exposes the path, raw content, frontmatter attributes and its
 {{model.children}} <!-- Array of child content -->
 ```
 
-Should you need to get markdown content in components, simply inject the store and bob's your uncle.
+### `this.get('markdownResolver').tree(type)`
 
-```js
-// components/my-random-component.js
-
-import Component from '@ember/component';
-import { computed, get } from '@ember/object';
-import { inject } from '@ember/service';
-
-export default Component.extend({
-  store: inject(),
-
-  markdown: computed(function() {
-    return get(this, 'store').findMarkdown('guides', 'examples/first');
-  }
-});
-```
-
-### `this.store.findMarkdownTree(type)`
-
-The `findMarkdownTree` method returns a tree object for a given folder, allowing menu interfaces to be built from the markdown file structure.
+The `tree` method returns a tree object for a given folder, allowing menu interfaces to be built from the markdown file structure.
 
 ```js
 // routes/guides.js
 
 import Route from '@ember/routing/route';
+import { inject } from '@ember/service';
 
 export default Route.extend({
+  markdownResolver: inject(),
+
   model({ path }) {
-    return this.store.findMarkdownTree('guides'));
+    return get(this, 'markdownResolver').file('guides');
   }
 });
 ```
