@@ -10,8 +10,8 @@ module.exports = {
   name: 'ember-cli-markdown-resolver',
 
   included(app) {
-    this.addonConfig = this.app.project.config(app.env)['ember-cli-markdown-resolver'] || {};
-    this.testAppPath = this.app.options['ember-cli-markdown-resolver']['test-app-path'] || '';
+    this.addonConfig = this.getAddonConfig(app);
+    this.testAppPath = this.getTestAppPath();
     return this._super.included.apply(this, arguments);
   },
 
@@ -46,5 +46,16 @@ module.exports = {
     }
 
     return this._super.treeForAddon.call(this, tree);
+  },
+
+  getAddonConfig(app) {
+    return this.app.project.config(app.env)[this.name] || {};
+  },
+
+  getTestAppPath() {
+    let instanceOptions = this.app.options[this.name];
+    return instanceOptions && instanceOptions['test-app-path'] ?
+      instanceOptions['test-app-path'] :
+      '';
   }
 };
