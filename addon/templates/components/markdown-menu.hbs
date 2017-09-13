@@ -1,0 +1,10 @@
+{{#if tree}}
+  <div class="markdown-menu-title">
+    {{tree.name}}
+  </div>
+  <ul>
+    {{#each tree.files as | item |}}
+      {{markdown-menu-item item=item treePath=tree.path linkTo=linkTo}}
+    {{/each}}
+  </ul>
+{{/if}}

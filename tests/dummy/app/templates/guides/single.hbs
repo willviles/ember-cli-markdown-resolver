@@ -1,0 +1,11 @@
+{{#if guide.content}}
+  <article>
+    {{#if guide.attributes.title}}
+      <h3 class="font-header">{{guide.attributes.title}}</h3>
+      <hr />
+      <br />
+    {{/if}}
+    {{guide.content}}
+    {{!ui-markdown guide.content extensions="prettify"}}
+  </article>
+{{/if}}

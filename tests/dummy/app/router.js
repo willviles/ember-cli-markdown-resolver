@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('guides', function() {
+    this.route('single', { path: '/*path' });
+  });
 });
 
 export default Router;

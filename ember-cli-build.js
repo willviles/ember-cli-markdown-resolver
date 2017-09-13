@@ -1,11 +1,14 @@
 /* eslint-env node */
 'use strict';
 
+const path = require('path');
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
-    // Add options here
+    'ember-cli-markdown-resolver': {
+      'test-app-path': path.join('tests', 'dummy')
+    }
   });
 
   /*

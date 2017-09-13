@@ -1,0 +1,11 @@
+{{link-to item.attributes.title linkTo itemPath}}
+
+{{#if item.children}}
+  <ul>
+    {{#each item.children as | child |}}
+      <li>
+        {{markdown-menu-item item=child treePath=treePath linkTo=linkTo}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

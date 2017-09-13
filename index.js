@@ -11,6 +11,7 @@ module.exports = {
 
   included(app) {
     this.addonConfig = this.app.project.config(app.env)['ember-cli-markdown-resolver'] || {};
+    this.testAppPath = this.app.options['ember-cli-markdown-resolver']['test-app-path'] || '';
     return this._super.included.apply(this, arguments);
   },
 
@@ -25,7 +26,7 @@ module.exports = {
 
     let mdPaths = folders.reduce((paths, folder) => {
       let folderPathSegments = folder.split('/'),
-          folderPath = path.join(this.project.root, ...folderPathSegments),
+          folderPath = path.join(this.app.project.root, this.testAppPath, ...folderPathSegments),
           folderExists = fs.existsSync(folderPath);
 
       return folderExists ?
@@ -36,7 +37,7 @@ module.exports = {
     if (mdPaths.length > 0) {
 
       let mdFiles = new MarkdownResolver(mdPaths, {
-        basePath: this.project.root,
+        basePath: path.join(this.app.project.root, this.testAppPath),
         outputFile: 'files.js',
         trimExtensions: true
       });
