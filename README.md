@@ -110,7 +110,7 @@ The addon ships with a `markdown-menu` component which builds a nested list from
 
 ## Demo
 
-Check out the [Ember CLI Markdown Resolver guides](https://github.com/willviles/ember-cli-markdown-resolver), which is generated using the addon.
+Check out the [Ember CLI Markdown Resolver guides](https://willviles.github.io/ember-cli-markdown-resolver), which is generated using the addon.
 
 Code for the guides can be found [here](https://github.com/willviles/ember-cli-markdown-resolver/tree/master/tests/dummy).
 
