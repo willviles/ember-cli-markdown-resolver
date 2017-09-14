@@ -1,0 +1,23 @@
+.markdown-menu {
+  .markdown-menu-title {
+    font-weight: 800;
+    font-size: 1.1em;
+    text-transform: capitalize;
+    margin-bottom: .75em;
+  }
+  & > ul {
+    a {
+      padding: .5em 0;
+      &:hover {
+        font-weight: 800;
+      }
+      &.active {
+        color: _get($--colors, 'red');
+        font-weight: 800;
+      }
+    }
+    ul {
+      margin-left: 1em;
+    }
+  }
+}

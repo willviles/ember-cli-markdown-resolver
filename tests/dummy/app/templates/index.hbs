@@ -1,3 +1,39 @@
-<h1>Ember CLI Markdown Resolver</h1>
+<div class="valign-section">
+  <div>
 
-{{link-to 'View the Guides' 'guides'}}
+    {{#ui-section name="index" align="center" padding="md"}}
+
+      <div class="container">
+        <img src="{{rootUrl}}/images/logo-black.svg" alt="Ember CLI Markdown Resolver" />
+
+        <br /><br /><br />
+
+        <h5 class="font-header">
+          The quickest way to include static markdown content in your Ember.js application.
+        </h5>
+
+        <br /><br />
+
+        {{ui-button-link-to 'View the Guides' 'guides'
+            bg="black"
+            bgHover="red"
+            color="white"
+            inline=true
+            padding="md"
+            depth="md" }}
+        &nbsp;
+        {{ui-button-link 'GitHub'
+            href="https://github.com/willviles/ember-cli-markdown-resolver"
+            target="_blank"
+            bg="black"
+            bgHover="red"
+            color="white"
+            inline=true
+            padding="md"
+            depth="md" }}
+      </div>
+
+    {{/ui-section}}
+
+  </div>
+</div>

@@ -1,0 +1,83 @@
+//----------------------------------------------------------------------
+
+// Buttons
+//
+
+button {
+  border: none;
+  padding: 0 0 0 0;
+  background-color: transparent;
+  cursor: pointer;
+  color: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  font-style: inherit;
+
+  &:focus { outline: 0; }
+  &.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+
+  &.align-left { justify-content: left; }
+  &.align-right { justify-content: right; }
+
+  &.rounded {
+    border-radius: _get($--buttons, 'border-radius');
+  }
+
+  &:not(.inline) {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &.transparent {
+    background-color: rgba(white, 0);
+    color: inherit !important;
+  }
+
+  @for $i from 1 through length(_get($--grid, 'breakpoints')) {
+    $breakpoints: _keys(_get($--grid, 'breakpoints'));
+    $breakpoint: nth($breakpoints, $i);
+
+    line-height: nth(_get($--buttons, 'line-height'), $i);
+
+    &.padding-#{$breakpoint} {
+      $padding: nth(_get($--buttons, 'padding'), $i);
+      $horiz-ratio: _get($--buttons, 'padding-horiz-ratio');
+      padding: $padding #{$padding * $horiz-ratio};
+    }
+
+    &.font-size-#{$breakpoint} {
+      $font-size: nth(_get($--buttons, 'font-size'), $i);
+      font-size: $font-size;
+    }
+  }
+
+  @each $name, $hex in $--colors {
+    &.bg-#{$name}:not([class*=' bg-hover']):not(:disabled) {
+      &:hover { background-color: darken($hex, 5%) !important; }
+    }
+  }
+
+  &:disabled {
+    background-color: _get($--buttons, 'disabled-bg') !important;
+    color: _get($--buttons, 'disabled-color') !important;
+    cursor: auto !important;
+  }
+
+  &.pending {
+    background-color: _get($--buttons, 'pending-bg') !important;
+    color: _get($--buttons, 'pending-color') !important;
+    cursor: auto;
+  }
+}

@@ -1,0 +1,24 @@
+// Components config
+
+$--navbar: (
+  height: (50px, 50px, 60px, 70px, 90px),
+  background-color: _get($--colors, 'black'),
+  color: _get($--colors, 'white'),
+  item-horiz-padding: (.5rem, .5rem, .66rem, .75rem, .9rem),
+  fixed: false
+);
+
+$--buttons: (
+  font-size: (.7rem, 1rem, 1.2rem, 1.5rem, 2rem),
+  padding: (.5rem, .75rem, 1rem, 2rem, 3rem),
+  padding-horiz-ratio: 1.5,
+  line-height: (160%, 150%, 140%, 130%, 120%),
+  border-radius: .25rem,
+  disabled-bg: rgba(_get($--colors, 'lt-gray'), .33),
+  disabled-color: rgba(_get($--colors, 'black'), .5)
+);
+
+$--sections: (
+  font-size: (.7rem, .9rem, 1rem, 1.1rem, 1.2rem),
+  padding: (3rem, 5rem, 7rem, 10rem, 20rem)
+);

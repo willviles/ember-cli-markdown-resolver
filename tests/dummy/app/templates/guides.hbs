@@ -1,18 +1,26 @@
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col xs12 md4 xl3">
-        {{markdown-menu tree=tree linkTo='guides.single'}}
-      </div>
-      <div class="col xs12 md8 xl9">
-        <div class="row">
-          <div class="col xs12 md10 offset-md1">
-            <article>
-              {{outlet}}
-            </article>
+{{ui-navbar fixed=false}}
+
+{{#ui-section padding="xs"}}
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col xs12 md4 xl3">
+          {{markdown-menu tree=tree linkTo='guides.single'}}
+          <br />
+          <br />
+        </div>
+        <div class="col xs12 md8 xl9">
+          <div class="row">
+            <div class="col xs12 md10 offset-md1">
+              <article>
+                {{outlet}}
+              </article>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+{{/ui-section}}
+
+{{partial 'components/ui-footer'}}

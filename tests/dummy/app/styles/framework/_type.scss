@@ -1,0 +1,49 @@
+//----------------------------------------------------------------------
+
+// Type
+//
+
+$html: _get($--type, 'html');
+$headers: _get($--type, 'headers');
+$breakpoints: map-reverse(_get($--grid, 'breakpoints'));
+$paragraph: _get($--type, 'p');
+$small: _get($--type, 'small');
+
+
+html{
+  font-size: nth($html, 1);
+  line-height: nth($html, 2);
+
+  @include responsive-font-scale(nth($html, 1), nth($html, 3));
+}
+
+@each $size, $value in $headers {
+
+  $fontsize: nth($value, 1);
+  $ratio: nth($value, 3);
+
+  #{$size} {
+    font-size: $fontsize;
+    line-height: nth($value, 2);
+    margin: $fontsize;
+
+    @include responsive-font-scale($fontsize, $ratio);
+
+  }
+
+}
+
+small { font-size: $small; }
+
+p {
+  font-size: nth($paragraph, 1);
+  line-height: nth($paragraph, 2);
+  padding-bottom: nth($paragraph, 3);
+}
+
+article {
+  // padding: 0 _get($--grid, 'margin') _get($--grid, 'margin') _get($--grid, 'margin');
+  p {
+    font-size: 1.1em;
+  }
+}

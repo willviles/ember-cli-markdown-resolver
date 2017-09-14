@@ -1,0 +1,52 @@
+.section {
+  @for $i from 1 through length(_get($--grid, 'breakpoints')) {
+    $breakpoints: _keys(_get($--grid, 'breakpoints'));
+    $breakpoint: nth($breakpoints, $i);
+    $padding: nth(_get($--sections, 'padding'), $i);
+
+    &.padding-#{$breakpoint}, &.padding-top-#{$breakpoint} {
+      padding-top: $padding;
+
+      @include media-breakpoint-down('lg') {
+        padding-top: $padding * 0.8;
+      }
+
+      @include media-breakpoint-down('md') {
+        padding-top: $padding * 0.6;
+      }
+
+      @include media-breakpoint-down('sm') {
+        padding-top: $padding * 0.4;
+      }
+
+      @include media-breakpoint-down('xs') {
+        padding-top: _get($--grid, 'gutter') * 2;
+      }
+    }
+
+    &.padding-#{$breakpoint}, &.padding-bottom-#{$breakpoint} {
+      padding-bottom: $padding;
+
+      @include media-breakpoint-down('lg') {
+        padding-bottom: $padding * 0.8;
+      }
+
+      @include media-breakpoint-down('md') {
+        padding-bottom: $padding * 0.6;
+      }
+
+      @include media-breakpoint-down('sm') {
+        padding-bottom: $padding * 0.4;
+      }
+
+      @include media-breakpoint-down('xs') {
+        padding-bottom: _get($--grid, 'gutter') * 2;
+      }
+    }
+
+    &.font-size-#{$breakpoint} {
+      $font-size: nth(_get($--sections, 'font-size'), $i);
+      font-size: $font-size;
+    }
+  }
+}

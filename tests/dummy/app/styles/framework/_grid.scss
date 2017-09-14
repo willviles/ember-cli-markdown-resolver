@@ -1,0 +1,264 @@
+//----------------------------------------------------------------------
+
+// Grid
+//
+
+$grid-columns: _get($--grid, 'columns') !default;
+$gutter-width: _get($--grid, 'gutter') !default;
+$outer-margin: _get($--grid, 'margin') !default;
+$breakpoints: _get($--grid, 'breakpoints') !default;
+$flexboxgrid-max-width: _get($--grid, 'max-width') !default;
+
+$gutter-compensation: $gutter-width * .5 * -1;
+$half-gutter-width: $gutter-width * .5;
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  max-width: $flexboxgrid-max-width;
+  margin: 0 auto;
+}
+
+.container, .container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $outer-margin;
+  padding-left: $outer-margin;
+}
+
+.row, .row-fluid {
+  box-sizing: border-box;
+  @include flexbox();
+  @include flex(0, 1, auto);
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+}
+
+.row {
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+}
+
+.row.reverse {
+  @include flex-direction(row-reverse);
+}
+
+.col.reverse {
+  @include flex-direction(column-reverse);
+}
+
+@mixin flexboxgrid-sass-col-common {
+  box-sizing: border-box;
+
+  // split @include flex(0, 0, auto) into individual props
+  @include flex-grow(0);
+  @include flex-shrink(0);
+
+  // we leave @include flex-basis(auto) out of common because
+  // in some spots we need it and some we dont
+  // more why here: https://github.com/kristoferjoseph/flexboxgrid/issues/126
+
+  padding-right: $half-gutter-width;
+  padding-left: $half-gutter-width;
+}
+
+@each $value in $breakpoints {
+
+  $name: nth($value, 1);
+  $breakpoint: nth($value, 2);
+
+  // If is smallest breakpoint
+  @if index(map-keys($breakpoints), $name) == 1 {
+
+    .col-#{$name} {
+      @include flexboxgrid-sass-col-common;
+      @include flex-basis(auto);
+    }
+    @for $i from 1 through $grid-columns {
+      .col.#{$name}#{$i} {
+        @include flexboxgrid-sass-col-common;
+        @include flex-basis(100% / $grid-columns * $i);
+        max-width: 100% / $grid-columns * $i;
+      }
+    }
+    @for $i from 0 through $grid-columns {
+      .col.offset-#{$name}#{$i} {
+        @include flexboxgrid-sass-col-common;
+        @if $i == 0 {
+          margin-left: 0;
+        } @else {
+          margin-left: 100% / $grid-columns * $i;
+        }
+      }
+    }
+    .col.#{$name} {
+      @include flex-grow(1);
+      @include flex-basis(0);
+      max-width: 100%;
+      margin-left: _get($--grid, 'gutter') / 2;
+      margin-right: _get($--grid, 'gutter') / 2;
+    }
+    .start-#{$name} {
+      @include justify-content(flex-start);
+      text-align: start;
+    }
+
+    .center-#{$name} {
+      @include justify-content(center);
+      text-align: center;
+    }
+
+    .end-#{$name} {
+      @include justify-content(flex-end);
+      text-align: end;
+    }
+
+    .top-#{$name} {
+      @include align-items(flex-start);
+    }
+
+    .middle-#{$name} {
+      @include align-items(center);
+    }
+
+    .bottom-#{$name} {
+      @include align-items(flex-end);
+    }
+
+    .stretch-#{name} {
+      @include align-items(stretch);
+    }
+
+    .around-#{$name} {
+      @include justify-content(space-around);
+    }
+
+    .between-#{$name} {
+      @include justify-content(space-between);
+    }
+
+    .first-#{$name} {
+      order: -1;
+    }
+
+    .last-#{$name} {
+      order: 1;
+    }
+
+  // Otherwise, let's use
+
+  } @else {
+
+    $size: nth($breakpoint, 1);
+    $container: nth($breakpoint, 2);
+
+    @include media-breakpoint-up($name) {
+      .container {
+        max-width: $container;
+      }
+
+      .col.#{$name} {
+        @include flexboxgrid-sass-col-common;
+        @include flex-basis(auto);
+      }
+      @for $i from 1 through $grid-columns {
+        .col.#{$name}#{$i} {
+          @include flexboxgrid-sass-col-common;
+          @include flex-basis(100% / $grid-columns * $i);
+          max-width: 100% / $grid-columns * $i;
+        }
+      }
+      @for $i from 0 through $grid-columns {
+        .col.offset-#{$name}#{$i} {
+          @include flexboxgrid-sass-col-common;
+          @if $i == 0 {
+            margin-left: 0;
+          } @else {
+            margin-left: 100% / $grid-columns * $i;
+          }
+        }
+      }
+      .col.#{$name} {
+        @include flex-grow(1);
+        @include flex-basis(0);
+        max-width: 100%;
+      }
+      .start-#{$name} {
+        @include justify-content(flex-start);
+        text-align: start;
+      }
+
+      .center-#{$name} {
+        @include justify-content(center);
+        text-align: center;
+      }
+
+      .end-#{$name} {
+        @include justify-content(flex-end);
+        text-align: end;
+      }
+
+      .top-#{$name} {
+        @include align-items(flex-start);
+      }
+
+      .middle-#{$name} {
+        @include align-items(center);
+      }
+
+      .bottom-#{$name} {
+        @include align-items(flex-end);
+      }
+
+      .around-#{$name} {
+        @include justify-content(space-around);
+      }
+
+      .between-#{$name} {
+        @include justify-content(space-between);
+      }
+
+      .first-#{$name} {
+        order: -1;
+      }
+
+      .last-#{$name} {
+        order: 1;
+      }
+    }
+  }
+}
+
+//----------------------------------------------------------------------
+
+// Responsive classes
+//
+// Hide elements responsively using classes.
+
+@each $name, $value in _get($--grid, 'breakpoints') {
+
+  .hide-#{$name} {
+    @include media-breakpoint-only($name) {
+      display: none !important;
+    }
+  }
+
+  .hide-#{$name}-up {
+    @include media-breakpoint-up($name) {
+      display: none !important;
+    }
+  }
+  .hide-#{$name}-down {
+    @include media-breakpoint-down($name) {
+      display: none !important;
+    }
+  }
+
+}

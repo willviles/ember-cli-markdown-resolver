@@ -1,0 +1,18 @@
+footer {
+  padding: 1rem 0 2rem 0;
+  ul {
+    li {
+      display: inline-block;
+      font-size: _get($--type, 'small');
+      margin: .5em .5em;
+      & > a {
+        &.active, &:hover {
+          @include set-font('header');
+        }
+        &.active {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

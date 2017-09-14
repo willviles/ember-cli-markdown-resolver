@@ -1,0 +1,15 @@
+//----------------------------------------------------------------------
+
+// Colors
+//
+
+@each $name, $hex in $--colors {
+  // Give each color a unique color class
+  .color-#{$name} { color: $hex !important; }
+  // Give each color a unique bg class
+  .bg-#{$name} { background-color: $hex !important; }
+  // Give each color a unique bg hover class
+  .bg-hover-#{$name}:hover { background-color: $hex !important; }
+  // Give each color a unique color hover class
+  .color-hover-#{$name}:hover { color: $hex !important; }
+}

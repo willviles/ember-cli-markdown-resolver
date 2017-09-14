@@ -1,0 +1,63 @@
+//----------------------------------------------------------------------
+
+// Main
+//
+
+* {
+  &::selection {
+    color: _get($--main, 'selection-color');
+    background-color: _get($--main, 'selection-background-color');
+  }
+}
+
+html {
+  @include set-font('content');
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+
+  color: _get($--main, 'body-color');
+  background-color: _get($--main, 'body-background-color');
+
+  &.no-scroll { overflow: hidden; }
+
+}
+
+//----------------------------------------------------------------------
+
+// Headers
+// Add header styles.
+
+h1, h2, h3, h4, h5, h6 {
+  @include set-font('display');
+
+  // Ensure there's a margin on each header
+  margin: .5em 0;
+
+  // Other styles to attach to all headers
+  a { font-weight: inherit; }
+}
+
+//----------------------------------------------------------------------
+
+// Links
+// Add link styles.
+
+a {
+  text-decoration: none;
+  &, &:visited, &:active { display: inline-block; color: inherit; }
+}
+
+//----------------------------------------------------------------------
+
+// Type
+// Defaults for type styles
+
+i { font-style: italic; }
+b { font-weight: 700; }
+em { font-style: italic; }
+strong { font-weight: 500; }
+.uppercase { text-transform: uppercase !important; }

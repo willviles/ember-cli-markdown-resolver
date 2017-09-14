@@ -3,4 +3,32 @@ title: Installation
 order: 0
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Sic enim censent, oportunitatis esse beate vivere. Quis istud possit, inquit, negare? Quae similitudo in genere etiam humano apparet. Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Duo Reges: constructio interrete.
+```
+ember install ember-cli-markdown-resolver
+```
+
+#### Configuration
+
+The addon requires you specify the locations of markdown files:
+
+```js
+// config/environment.js
+
+ENV['ember-cli-markdown-resolver'] = {
+  folders: {
+    'guides': 'app/guides'
+  }
+};
+```
+
+And to populate your folder with markdown content:
+
+```shell
+.
+└── app/
+    └── guides/
+        ├── quick-start.md
+        ├── examples.md
+        └── examples/
+            └── first.md
+```

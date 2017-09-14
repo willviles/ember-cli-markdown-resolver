@@ -3,41 +3,50 @@ title: markdown-menu
 order: 0
 ---
 
-Here's some test code examples
+<span class="codelink">
+[&rarr; addon/components/markdown-menu.js](https://github.com/willviles/ember-cli-markdown-resolver/blob/master/addon/components/markdown-menu.js)
+</span>
 
-```shell
-ember install ember-cli-markdown-resolver
+The addon ships with a `markdown-menu` component which builds a nested list from your file tree and can be styled using your own css.
+
+```hbs
+<!-- templates/guides.hbs -->
+
+{{markdown-menu tree=model}}
+{{outlet}}
 ```
 
-```js
-// routes/guides/single.js
-import Route from '@ember/routing/route';
-import { inject } from '@ember/service';
+##### Styles
 
-export default Route.extend({
-  markdownResolver: inject(),
+<span class="codelink">
+[&rarr; tests/dummy/app/styles/components/markdown/_prettyprint.scss](https://github.com/willviles/ember-cli-markdown-resolver/blob/master/tests/dummy/app/styles/components/markdown/_prettyprint.scss)
+</span>
 
-  model({ path }) {
-    return get(this, 'markdownResolver').file('guides', path);
-  }
-});
-```
-
-
-YAML syntax highlighting test
-
-```yaml
-stuff: true
-things:
-  - not cool
-  - not at all cool
-```
-
-CSS syntax highlighting test
+The simple menu on this page has been styled using the following css.
 
 ```css
-.this-is-cool {
-  text-transform: uppercase;
-  z-index: 1;
+.markdown-menu {
+  .markdown-menu-title {
+    font-weight: 800;
+    font-size: 1.1em;
+    text-transform: capitalize;
+    margin-bottom: .75em;
+  }
+  & > ul {
+    a {
+      padding: .5em 0;
+      &:hover {
+        font-weight: 800;
+      }
+      &.active {
+        color: red;
+        font-weight: 800;
+      }
+    }
+    ul {
+      margin-left: 1em;
+    }
+  }
 }
+
 ```

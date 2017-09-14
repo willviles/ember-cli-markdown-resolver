@@ -1,0 +1,123 @@
+// Main config
+
+$--grid: (
+  // Set the number of columns you want to use on your layout.
+  columns: 12,
+  // Set the gutter between columns.
+  gutter: 1rem,
+  // Set a margin for the container sides.
+  margin: 2rem,
+  // Define breakpoints.
+  breakpoints: (
+    xs: default, // Less than 576px wide - Portrait phones
+    sm: 576px 540px, // Between 576 and 767 - Landscape Phones
+    md: 768px 720px, // Between 768 and 991 - Tablets
+    lg: 992px 960px, // Between 992 and 1199 - Desktops
+    xl: 1280px 1024px // 1200 upwards - Extra large devices
+  ),
+  // Max width of container
+  max-width: 1024px
+);
+
+$--font-faces: (
+  'overpass': (
+    family: 'Overpass',
+    type: sans-serif
+  )
+);
+
+$--font-styles: (
+  'display': (
+    family: font('overpass'),
+    style: normal,
+    weight: 300,
+    letter-spacing: -.02em
+  ),
+  'header': (
+    family: font('overpass'),
+    style: normal,
+    weight: 800,
+    letter-spacing: -0.01em
+  ),
+  'content': (
+    family: font('overpass'),
+    transform: inherit,
+    weight: 400,
+    letter-spacing: 0em
+  )
+);
+
+$--type: (
+  // HTML Base Font
+  // @params font-size, line-height, responsive-ratio
+  html: (15px, 150%, 1.1),
+
+  // Headers
+  // @params font-size, line-height, responsive-ratio
+  headers: (
+    h1: (3.33rem, 110%, 0.6),
+    h2: (2rem, 120%, 0.8),
+    h3: (1.66rem, 130%, 0.85),
+    h4: (1.33rem, 140%, 0.9),
+    h5: (1.2rem, 160%, 0.95),
+    h6: (1rem, 180%, 1)
+  ),
+
+  // Paragraph
+  // @params font-size, line-height, padding-bottom
+  p: (1rem, 200%, 1em),
+
+  // Small
+  // @params font-size
+  small: 0.9em
+);
+
+$--colors: (
+  // Monochrome
+  'white': white,
+  'black': black,
+
+  // Mid tones
+  'gray': #2f3640,
+  'lt-gray': darken(white, 5%),
+  'mid-gray': darken(white, 33%),
+
+  // Success, Error & Warning
+  'green': #2ecc71,
+  'red': #EF2038,
+  'yellow': #FFDF2E
+);
+
+$--main: (
+  body-color: _get($--colors, 'black'),
+  body-background-color: _get($--colors, 'white'),
+  selection-background-color: _get($--colors, 'black'),
+  selection-color: _get($--colors, 'white')
+);
+
+$--easing: (
+  'cubic': (
+    in: cubic-bezier(0.550, 0.055, 0.675, 0.190),
+    out: cubic-bezier(0.215, 0.610, 0.355, 1.000),
+    in-out: cubic-bezier(0.645, 0.045, 0.355, 1.000)
+  ),
+  'expo': (
+    in: cubic-bezier(0.950, 0.050, 0.795, 0.035),
+    out: cubic-bezier(0.190, 1.000, 0.220, 1.000),
+    in-out: cubic-bezier(1.000, 0.000, 0.000, 1.000)
+  ),
+  'back': (
+    in: cubic-bezier(0.600, -0.280, 0.735, 0.045),
+    out: cubic-bezier(0.175, 0.885, 0.320, 1.275),
+    in-out: cubic-bezier(0.680, -0.550, 0.265, 1.550)
+  ),
+  'jump': (
+    out: cubic-bezier(.25,1.4,.55,.99),
+    in-out: cubic-bezier(.87,-.41,.19,1.44),
+  ),
+  'leap': (
+    out: cubic-bezier(.25,1.9,.55,.99),
+    in-out: cubic-bezier(.78,-0.81,.27,1.7)
+  )
+
+);

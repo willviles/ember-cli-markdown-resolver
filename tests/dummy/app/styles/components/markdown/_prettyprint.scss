@@ -1,0 +1,36 @@
+.prettyprint {
+
+  @at-root pre#{&} {
+    background: _get($--colors, 'gray');
+    color: _get($--colors, 'white');
+    margin: 0 0 2em 0;
+    padding: 1em;
+  }
+
+  @at-root code#{&} {
+    background: _get($--colors, 'lt-gray');
+    color: inherit;
+    padding: .2em .5em;
+  }
+
+  font-family: Menlo, Monaco, Consolas, monospace;
+  border: 0 !important;
+  border-radius: .25rem;
+  overflow-x: scroll;
+
+  li {
+    padding-left: .5em;
+    padding-right: .5em;
+    line-height: 1.5em;
+    &.L4, &.L9 {
+      list-style-type: none !important;
+    }
+  }
+
+  // Hide the text until it's prettyprinted
+  &:not(.prettyprinted) {
+    & > code {
+      visibility: hidden;
+    }
+  }
+}

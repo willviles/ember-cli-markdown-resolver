@@ -1,0 +1,116 @@
+.navbar, .navbar > .container {
+  display: flex;
+  align-items: stretch;
+}
+
+.navbar {
+
+  &:not(.unfixed) {
+    position: fixed;
+    z-index: 60;
+    top: 0; left: 0; width: 100%;
+  }
+
+  background-color: _get($--navbar, 'background-color');
+  color: _get($--navbar, 'color');
+
+  @for $i from length(_get($--grid, 'breakpoints'))*-1 through -1 {
+    $breakpoints: _keys(_get($--grid, 'breakpoints'));
+    $breakpoint: nth($breakpoints, abs($i));
+    @include media-breakpoint-down($breakpoint) {
+      height: nth(_get($--navbar, 'height'), abs($i));
+    }
+  }
+
+  & > .container {
+    flex-grow: 1;
+  }
+  .navbar-content {
+    display: flex;
+    flex-grow: 1;
+    & > * {
+      display: flex;
+      align-items: stretch;
+    }
+    .left, .right, .center {
+      flex-grow: 1;
+      & > * {
+        display: inline-flex;
+      }
+      a {
+        display: inline-flex;
+        align-items: center;
+        &.active {
+          text-decoration: underline;
+          @include set-font('header');
+        }
+      }
+      ul li {
+        display: inline-flex;
+        align-items: stretch;
+        a {
+          @for $i from 1 through length(_get($--grid, 'breakpoints')) {
+            $breakpoints: _keys(_get($--grid, 'breakpoints'));
+            $breakpoint: nth($breakpoints, $i);
+            @include media-breakpoint-down($breakpoint) {
+              padding-left: nth(_get($--navbar, 'item-horiz-padding'), $i);
+              padding-right: nth(_get($--navbar, 'item-horiz-padding'), $i);
+            }
+          }
+        }
+      }
+    }
+    .left {
+      justify-content: flex-start;
+      @include media-breakpoint-down('sm') {
+        flex-basis: 100%;
+        // justify-content: center;
+      }
+    }
+    .center {
+      justify-content: center;
+    }
+    .right {
+      justify-content: flex-end;
+    }
+    // Custom components
+    .unauthenticated {
+      a {
+        display: inline-flex;
+        align-items: center;
+        padding-left: .3em;
+        padding-right: .3em;
+      }
+      & > span {
+        align-self: center;
+      }
+    }
+    .logo {
+      @include media-breakpoint-down('sm') {
+        flex-grow: 1;
+      }
+      img {
+        max-height: 33%;
+        @include media-breakpoint-down('lg') {
+          max-height: 45%;
+        }
+        @include media-breakpoint-down('sm') {
+          margin: auto;
+          max-height: 66%;
+        }
+      }
+    }
+    .burger {
+      font-size: 2rem;
+      padding: 0 _get($--grid, 'gutter');
+      &.left {
+        margin-left: -#{_get($--grid, 'margin')};
+        padding-left: _get($--grid, 'margin');
+      }
+      &:not(.left) {
+        margin-right: -#{_get($--grid, 'margin')};
+        padding-right: _get($--grid, 'margin');
+      }
+    }
+  }
+}

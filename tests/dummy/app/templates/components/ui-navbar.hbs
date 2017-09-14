@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="navbar-content">
+    <div class="left">
+      {{#link-to 'index' class="logo"}}
+        <img src="{{rootUrl}}/images/logo-white.svg" alt="Ember CLI Markdown Resolver" />
+      {{/link-to}}
+    </div>
+    <div class="right">
+      <ul class="hide-sm-down">
+        <li>
+          {{link-to 'Guides' 'guides'}}
+        </li>
+        <li>
+          <a href="https://github.com/willviles/ember-cli-markdown-resolver" target="_blank">
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://www.willviles.com" target="_blank">
+            Author
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- <button {{action (route-action 'toggleSideMenu')}} class="burger hide-md-up">
+      <i>=</i>
+    </button> -->
+  </div>
+</div>

@@ -1,0 +1,9 @@
+//----------------------------------------------------------------------
+
+// Fonts
+//
+
+// Give each font style a class
+@each $name, $styles in $--font-styles {
+  .font-#{$name} { @include set-font($name); }
+}
