@@ -14,8 +14,8 @@ export default Route.extend({
       appName: `Ember CLI Markdown Resolver`,
       description: `The quickest way to include static markdown content in your Ember.js application. Ember CLI Markdown Resolver is an addon for resolving markdown files in custom folders and retrieving content via a service.`,
       keywords: `ember.js, ember-addon, markdown, md, resolver, frontmatter, content`,
-      image: `${baseURL}/assets/images/share/facebook.jpg`,
-      favicon: `${baseURL}/assets/images/favicon.ico`
+      image: `${baseURL}/images/facebook.jpg`,
+      favicon: `${baseURL}/images/favicon`
     };
   },
 })
