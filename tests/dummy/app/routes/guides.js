@@ -7,6 +7,8 @@ const { hash } = RSVP;
 
 export default Route.extend({
 
+  titleToken: 'Guides',
+
   markdownResolver: inject(),
 
   model() {

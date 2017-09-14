@@ -7,6 +7,10 @@ const { hash } = RSVP;
 
 export default Route.extend({
 
+  titleToken({ guide }) {
+    return get(guide, 'attributes.title');
+  },
+
   markdownResolver: inject(),
 
   model({ path }) {
