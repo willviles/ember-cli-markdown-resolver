@@ -31,7 +31,7 @@ export function initialize(appInstance) {
   let RouteURLMixin = Mixin.create({
     routeURL: computed(function() {
       return isFastBoot ?
-        `${baseURL}${fastbootService.get('request.path')}` :
+        `${baseURL}${rootURL}${fastbootService.get('request.path')}` :
         window.location.href;
     })
 
