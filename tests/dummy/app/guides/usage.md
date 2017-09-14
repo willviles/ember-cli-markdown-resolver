@@ -7,5 +7,5 @@ Ember CLI Markdown Resolver enables markdown content to be retrieved via the `ma
 
 The service exposes two methods for accessing markdown data.
 
-- [Files](/guides/usage/files)
-- [Trees](/guides/usage/trees)
+- Files
+- Trees
