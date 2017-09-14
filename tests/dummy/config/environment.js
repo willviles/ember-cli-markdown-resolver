@@ -41,6 +41,10 @@ module.exports = function(environment) {
     skin: 'desert'
   };
 
+  ENV['googleFonts'] = [
+    'Overpass:300,400,800'
+  ];
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

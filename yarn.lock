@@ -2212,6 +2212,12 @@ ember-cli-github-pages@^0.1.2:
     ember-cli-version-checker "^1.1.6"
     rsvp "^3.0.14"
 
+ember-cli-google-fonts@^2.14.1:
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-google-fonts/-/ember-cli-google-fonts-2.14.1.tgz#63d2325e8d93def483cebccb8adecf63d60e9a46"
+  dependencies:
+    ember-cli-babel "^6.3.0"
+
 ember-cli-head@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/ember-cli-head/-/ember-cli-head-0.3.1.tgz#a407df4880f235280371c437bb5b0b5cbdaea646"
