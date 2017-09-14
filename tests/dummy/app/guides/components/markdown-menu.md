@@ -19,7 +19,7 @@ The addon ships with a `markdown-menu` component which builds a nested list from
 ##### Styles
 
 <span class="codelink">
-[&rarr; tests/dummy/app/styles/components/markdown/_prettyprint.scss](https://github.com/willviles/ember-cli-markdown-resolver/blob/master/tests/dummy/app/styles/components/markdown/_prettyprint.scss)
+[&rarr; tests/dummy/app/styles/components/markdown/_menu.scss](https://github.com/willviles/ember-cli-markdown-resolver/blob/master/tests/dummy/app/styles/components/markdown/_menu.scss)
 </span>
 
 The simple menu on this page has been styled using the following css.
