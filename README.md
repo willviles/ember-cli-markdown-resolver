@@ -110,6 +110,21 @@ The addon ships with a `markdown-menu` component which builds a nested list from
 {{outlet}}
 ```
 
+## Helpers
+
+Ember CLI Markdown Resolver defines two template helpers:
+
+```hbs
+<!-- Gets the title property of the markdown file -->
+{{get (get-markdown-file 'guides' 'nested/page-slug') 'title'}}
+
+<!-- Shorthand to get content from markdown file -->
+{{my-render-component content=(get-markdown-content 'guides' 'nested/page-slug')}}
+
+<!-- Get the markdown tree -->
+{{markdown-menu tree=(get-markdown-tree 'guides')}}
+```
+
 ## Demo
 
 Check out the [Ember CLI Markdown Resolver guides](https://willviles.github.io/ember-cli-markdown-resolver), which is generated using the addon.
