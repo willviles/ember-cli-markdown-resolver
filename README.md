@@ -112,7 +112,7 @@ The addon ships with a `markdown-menu` component which builds a nested list from
 
 ## Helpers
 
-Ember CLI Markdown Resolver defines two template helpers:
+Ember CLI Markdown Resolver defines the following template helpers:
 
 ```hbs
 <!-- Gets the title property of the markdown file -->
