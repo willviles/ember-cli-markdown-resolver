@@ -42,15 +42,22 @@ export default Service.extend({
     }, {});
   }),
 
-  file(tree, file) {
+  _file(tree, file) {
     tree = this.getPathFromTreeName(tree);
-    return resolve(get(this, 'files').findBy('path', `${tree}/${file}`));
+    return get(this, 'files').findBy('path', `${tree}/${file}`);
+  },
+
+  file(tree, file) {
+    return resolve(this._file(tree, file));
+  },
+
+  _tree(tree) {
+    tree = this.getPathFromTreeName(tree);
+    return getWithDefault(this, `trees.${tree}`, []);
   },
 
   tree(tree) {
-    tree = this.getPathFromTreeName(tree);
-    tree = getWithDefault(this, `trees.${tree}`, []);
-    return resolve(tree);
+    return resolve(this._tree(tree));
   },
 
   getTreeName(path) {
