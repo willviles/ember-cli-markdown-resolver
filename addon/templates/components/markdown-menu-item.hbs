@@ -1,4 +1,8 @@
-{{link-to item.attributes.title linkTo itemPath}}
+{{#unless noContent}}
+  {{link-to item.attributes.title linkTo itemPath}}
+{{else}}
+  <a tabindex="0">{{item.attributes.title}}</a>
+{{/unless}}
 
 {{#if item.children}}
   <ul>

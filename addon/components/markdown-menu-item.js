@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { computed, get } from '@ember/object';
+import { empty } from '@ember/object/computed';
 
 import layout from 'ember-cli-markdown-resolver/templates/components/markdown-menu-item';
 
@@ -13,5 +14,8 @@ export default Component.extend({
         treePath = get(this, 'treePath');
     if (!itemPath) { return; }
     return itemPath.replace(`${treePath}/`, '');
-  })
+  }),
+
+  noContent: empty('item.content')
+
 });
