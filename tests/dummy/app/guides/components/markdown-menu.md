@@ -7,7 +7,7 @@ order: 0
 [&rarr; addon/components/markdown-menu.js](https://github.com/willviles/ember-cli-markdown-resolver/blob/master/addon/components/markdown-menu.js)
 </span>
 
-The addon ships with a `markdown-menu` component which builds a nested list from your file tree and can be styled using your own css.
+Ember CLI Markdown Resolver defines a `markdown-menu` component for creating nested menus from your markdown file trees and can be styled using your own css. It uses a `markdown-menu-item` component to loop through each level of nesting.
 
 ```hbs
 <!-- templates/guides.hbs -->

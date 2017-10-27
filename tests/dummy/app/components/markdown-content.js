@@ -7,6 +7,8 @@ import ShowdownComponent from 'ember-cli-showdown/components/markdown-to-html';
 export default ShowdownComponent.extend({
   codePrettify: inject(),
 
+  classNames: ['markdown-content'],
+
   html: computed('markdown', 'converter', function() {
     scheduleOnce('afterRender', this, function() {
       get(this, 'codePrettify').prettify();
