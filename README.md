@@ -1,7 +1,8 @@
 <img src="https://user-images.githubusercontent.com/2046935/30438539-5e23da9e-9969-11e7-8fc1-1d67a7a23aa4.png" width="auto" height="50">
 
-Ember CLI Markdown Resolver Ember GSAP [![Build Status](https://travis-ci.org/willviles/ember-cli-markdown-resolver.svg)](https://travis-ci.org/willviles/ember-cli-markdown-resolver) [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-markdown-resolver.svg)](http://emberobserver.com/addons/ember-cli-markdown-resolver) [![Download count all time](https://img.shields.io/npm/dt/ember-cli-markdown-resolver.svg)]((https://www.npmjs.com/package/ember-cli-markdown-resolver)) [![npm](https://img.shields.io/npm/v/ember-cli-markdown-resolver.svg)](https://www.npmjs.com/package/ember-cli-markdown-resolver)
+Ember CLI Markdown Resolver
 ======
+[![Build Status](https://travis-ci.org/willviles/ember-cli-markdown-resolver.svg)](https://travis-ci.org/willviles/ember-cli-markdown-resolver) [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-markdown-resolver.svg)](http://emberobserver.com/addons/ember-cli-markdown-resolver) [![Download count all time](https://img.shields.io/npm/dt/ember-cli-markdown-resolver.svg)]((https://www.npmjs.com/package/ember-cli-markdown-resolver)) [![npm](https://img.shields.io/npm/v/ember-cli-markdown-resolver.svg)](https://www.npmjs.com/package/ember-cli-markdown-resolver)
 
 Ember CLI Markdown Resolver is the quickest way to include static markdown content in your Ember.js application using [Broccoli Markdown Resolver](https://github.com/willviles/broccoli-markdown-resolver).
 
@@ -131,6 +132,10 @@ Check out the [Ember CLI Markdown Resolver guides](https://willviles.github.io/e
 
 Code for the guides can be found [here](https://github.com/willviles/ember-cli-markdown-resolver/tree/master/tests/dummy).
 
+## Node Version
+
+Ember CLI Markdown Resolver currently supports Node >=6.
+
 ## Contributing
 
 ### Installation
@@ -146,7 +151,7 @@ Code for the guides can be found [here](https://github.com/willviles/ember-cli-m
 
 ### Running Tests
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
+* `yarn test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
