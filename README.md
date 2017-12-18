@@ -1,6 +1,6 @@
 <img src="https://user-images.githubusercontent.com/2046935/30438539-5e23da9e-9969-11e7-8fc1-1d67a7a23aa4.png" width="auto" height="50">
 
-Ember CLI Markdown Resolver [![Download count all time](https://img.shields.io/npm/dt/ember-cli-markdown-resolver.svg)]((https://www.npmjs.com/package/ember-cli-markdown-resolver)) [![npm](https://img.shields.io/npm/v/ember-cli-markdown-resolver.svg)](https://www.npmjs.com/package/ember-cli-markdown-resolver)
+Ember CLI Markdown Resolver Ember GSAP [![Build Status](https://travis-ci.org/willviles/ember-cli-markdown-resolver.svg)](https://travis-ci.org/willviles/ember-cli-markdown-resolver) [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-markdown-resolver.svg)](http://emberobserver.com/addons/ember-cli-markdown-resolver) [![Download count all time](https://img.shields.io/npm/dt/ember-cli-markdown-resolver.svg)]((https://www.npmjs.com/package/ember-cli-markdown-resolver)) [![npm](https://img.shields.io/npm/v/ember-cli-markdown-resolver.svg)](https://www.npmjs.com/package/ember-cli-markdown-resolver)
 ======
 
 Ember CLI Markdown Resolver is the quickest way to include static markdown content in your Ember.js application using [Broccoli Markdown Resolver](https://github.com/willviles/broccoli-markdown-resolver).
