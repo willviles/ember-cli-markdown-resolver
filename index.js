@@ -53,8 +53,6 @@ module.exports = {
   },
 
   getTestAppPath() {
-    let testAppPath = './tests/dummy',
-        configPath = this.app.options.configPath;
-    return configPath.includes(testAppPath) ? testAppPath : '';
+    return typeof this.app.options.configPath === String ? './tests/dummy' : '';
   }
 };
