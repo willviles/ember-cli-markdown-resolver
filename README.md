@@ -50,6 +50,7 @@ The `file` method returns promisified markdown content, allowing the content to 
 // routes/guides/single.js
 
 import Route from '@ember/routing/route';
+import { get } from '@ember/object';
 import { inject } from '@ember/service';
 
 export default Route.extend({
@@ -80,12 +81,13 @@ The `tree` method returns a tree object for a given folder, allowing menu interf
 // routes/guides.js
 
 import Route from '@ember/routing/route';
+import { get } from '@ember/object';
 import { inject } from '@ember/service';
 
 export default Route.extend({
   markdownResolver: inject(),
 
-  model({ path }) {
+  model() {
     return get(this, 'markdownResolver').tree('guides');
   }
 });
