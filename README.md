@@ -104,6 +104,25 @@ order: 0
 Lorem ipsum dolor sit amet...
 ```
 
+Additionally, adding a `fragmentIdLinks` object to a file's frontmatter will generate a list local fragment identifier links which are used within the `{{markdown-menu-item}}` component. This is handy when you want to link to several individual sections of a large parent markdown file instead of having individual child markdown files.
+
+The `fragmentIdLinks` object expects child key-value pairs where each `key` represents the hash fragment id link and each `value` represents the text label to be shown as a child on the `{{markdown-menu}}` component.
+
+```md
+---
+title: Fragment Identifier Links
+order: 4
+fragmentIdLinks:
+  iamsectionone: "Section One"
+  section-two: "Section Two"
+---
+
+### I am section one
+Lorem ipsum dolor sit amet...
+
+<a id="section-two">Lorem ipsum dolor sit amet...
+```
+
 The addon ships with a `markdown-menu` component which builds a nested list from your file tree and can be styled using your own css.
 
 ```hbs

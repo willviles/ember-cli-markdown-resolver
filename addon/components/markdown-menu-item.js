@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { computed, get } from '@ember/object';
 import { empty } from '@ember/object/computed';
+import { scheduleOnce } from '@ember/runloop';
 
 import layout from 'ember-cli-markdown-resolver/templates/components/markdown-menu-item';
 
@@ -16,6 +17,15 @@ export default Component.extend({
     return itemPath.replace(`${treePath}/`, '');
   }),
 
-  noContent: empty('item.content')
+  noContent: empty('item.content'),
 
+  actions: {
+    navigateToHash(fragmentIdLink = '') {
+      scheduleOnce('afterRender', this, '_navigateToHash', fragmentIdLink);
+    }
+  },
+
+  _navigateToHash(fragmentIdLink) {
+    location.hash = fragmentIdLink;
+  }
 });
