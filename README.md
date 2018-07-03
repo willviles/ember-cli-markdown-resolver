@@ -116,11 +116,34 @@ fragmentIdLinks:
   iamsectionone: "Section One"
   section-two: "Section Two"
 ---
+```
 
 ### I am section one
 Lorem ipsum dolor sit amet...
 
 <a id="section-two">Lorem ipsum dolor sit amet...
+```
+
+By default, when you click on each `fragmentIdLinks` child link within the `{{markdown-menu-item}}` component it will update the url hash. You can easily override this default behavior by passing an `onClick` closure action into the `{{markdown-menu}}` component.
+
+```hbs 
+{{!-- templates/guides.hbs --}}
+{{markdown-menu onClick=(action "clickedMenuItemLink")}}
+```
+
+```js 
+// controllers/guides.js
+import Controller from '@ember/controller';
+
+export default Controller.extend({
+  actions: {
+    clickedMenuItemLink(fragmentIdLink) {
+      document.querySelector(`#${fragmentIdLink}`).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  }
+});
 ```
 
 The addon ships with a `markdown-menu` component which builds a nested list from your file tree and can be styled using your own css.

@@ -1,9 +1,5 @@
 {{#unless noContent}}
-  {{#if item.attributes.fragmentIdLinks}}
-    {{link-to item.attributes.title linkTo itemPath click=(action "navigateToHash" "")}}
-  {{else}}
-    {{link-to item.attributes.title linkTo itemPath}}
-  {{/if}}
+  {{link-to item.attributes.title linkTo itemPath click=(action "onClick")}}
 {{else}}
   <a tabindex="0">{{item.attributes.title}}</a>
 {{/unless}}
@@ -12,7 +8,7 @@
   <ul>
     {{#each-in item.attributes.fragmentIdLinks as | fragmentIdLink label |}}
       <li>
-        {{link-to label linkTo itemPath click=(action "navigateToHash" fragmentIdLink) activeClass=""}}
+        {{link-to label linkTo itemPath click=(action "onClick" fragmentIdLink) activeClass=""}}
       </li>
     {{/each-in}}
   </ul>
