@@ -16,6 +16,15 @@ export default Component.extend({
     return itemPath.replace(`${treePath}/`, '');
   }),
 
-  noContent: empty('item.content')
+  noContent: empty('item.content'),
 
+  actions: {
+    onClick(fragmentIdLink) {
+      let onClick = get(this, 'onClick');
+
+      if (onClick) {
+        onClick(fragmentIdLink);
+      }
+    }
+  }
 });
