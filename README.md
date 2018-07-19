@@ -116,7 +116,6 @@ fragmentIdLinks:
   iamsectionone: "Section One"
   section-two: "Section Two"
 ---
-```
 
 ### I am section one
 Lorem ipsum dolor sit amet...
@@ -126,12 +125,12 @@ Lorem ipsum dolor sit amet...
 
 By default, when you click on each `fragmentIdLinks` child link within the `{{markdown-menu-item}}` component it will update the url hash. You can easily override this default behavior by passing an `onClick` closure action into the `{{markdown-menu}}` component.
 
-```hbs 
+```hbs
 {{!-- templates/guides.hbs --}}
 {{markdown-menu onClick=(action "clickedMenuItemLink")}}
 ```
 
-```js 
+```js
 // controllers/guides.js
 import Controller from '@ember/controller';
 
