@@ -1,6 +1,7 @@
 ---
 title: Installation
 order: 0
+inTree: true
 ---
 
 ```
