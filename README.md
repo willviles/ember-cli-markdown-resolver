@@ -150,7 +150,9 @@ The addon ships with a `markdown-menu` component which builds a nested list from
 ```hbs
 <!-- templates/guides.hbs -->
 
-{{markdown-menu tree=model}}
+{{markdown-menu
+    title="My Markdown Menu"
+    tree=model}}
 {{outlet}}
 ```
 

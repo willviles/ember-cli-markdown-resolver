@@ -12,7 +12,7 @@ Ember CLI Markdown Resolver defines a `markdown-menu` component for creating nes
 ```hbs
 <!-- templates/guides.hbs -->
 
-{{markdown-menu tree=model}}
+{{markdown-menu title="My Markdown Menu" tree=model}}
 {{outlet}}
 ```
 
