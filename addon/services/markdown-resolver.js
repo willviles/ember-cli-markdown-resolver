@@ -72,17 +72,21 @@ export default Service.extend({
   },
 
   orderFiles(files) {
-    files = A(files).sortBy('attributes.order');
-    files.forEach(file => {
-      let inTree = get(file, 'attributes.inTree');
-      if (inTree === false) {
-        return files.removeObject(file);
+    files = A(files).sortBy('attributes.order').filter((file) => {
+      let attrs = get(file, 'attributes');
+      if (attrs.hasOwnProperty('inTree') && !get(attrs, 'inTree')) {
+        return;
       }
+      return file;
+    });
+
+    files.forEach(file => {
       let children = get(file, 'children');
       if (children) {
         set(file, 'children', this.orderFiles(children));
       }
     });
+
     return files;
   }
 
